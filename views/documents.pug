@@ -1,0 +1,25 @@
+doctype html
+html
+    head
+        title Documents
+    body
+        h1 Documents List
+        ul
+          each document in documents
+              li='Name: ' + document.name + '; Type:' + document.type
+
+        h2 Add New Document
+        form(action="/insertOne" method="post" style="display: flex; flex-direction: column;")
+            div(style="display: flex; flex-direction: column; border:1px solid black; max-width: 30%; padding: 10px; margin-bottom: 10px;")
+                label(for="name") Name:
+                input(type="text" name="name" style="width: 70%;" required)
+                p
+                label(for="description") Description:
+                input(type="text" name="description" style="width: 70%;" required)
+                p
+                label(for="type") Type:
+                input(type="text" name="type" style="width: 70%;")
+            button(type="submit" style="width: 15%;") Add Document
+        div(style="margin-bottom: 3em;")
+
+        a(href="/statistic") Statistic
